@@ -1,25 +1,29 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const Sentences = (props) => {
+import { useSelector } from 'react-redux';
+import withSpinner from '../../hoc/withSpinner'
 
-    const { sentences } = props;
+const TopFeatures = (props) => {
 
+    const features = useSelector(state => state.topFeatures);
     return (
-        (sentences || {}).length > 0 ?
+        features.length > 0 ?
             <TableParent>
                 <Table>
                     <Thead>
                         <TrInsideThead>
                             <Th><h3>#</h3></Th>
-                            <Th><h3>Sentences</h3></Th>
+                            <Th><h3>Feature</h3></Th>
+                            <Th><h3>Count</h3></Th>
                         </TrInsideThead>
                     </Thead>
                     <Tbody>
-                        {sentences.map((feature, index) => (
-                            <Tr key={index + 1} num={index}>
+                        {features.map((feature, index) => (
+                            <Tr key={index + 1} number={index}>
                                 <Td>{index + 1}</Td>
-                                <Td>{feature}</Td>
+                                <Td>{feature[0]}</Td>
+                                <Td>{feature[1]}</Td>
                             </Tr>
                         ))}
                     </Tbody>
@@ -28,7 +32,7 @@ const Sentences = (props) => {
     )
 }
 
-export default Sentences;
+export default withSpinner(TopFeatures);
 
 const Table = styled.table`
     width: 60%;
@@ -54,7 +58,7 @@ const TrInsideThead = styled.tr`
 
 
 const Tr = styled.tr`
-  background-color: ${props => props.num % 2 !== 0 ? '#88a3e026' : ''};
+  background-color: ${props => props.number % 2 !== 0 ? '#88a3e026' : ''};
 
   &:hover {
     box-shadow: 0px 0px 4px 1px black;
@@ -72,5 +76,4 @@ const Tbody = styled.tbody`
 const TableParent = styled.div`
     position: relative;
     overflow-y: scroll;
-    /* height: 250px; */
 `;

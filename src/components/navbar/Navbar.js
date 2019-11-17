@@ -4,7 +4,7 @@ import { useSpring, animated, config } from "react-spring";
 import Brand from "./Brand";
 import BurgerMenu from "./BurgerMenu";
 import CollapseMenu from "./CollapseMenu";
-import SearchForm from '../SearchForm';
+import SearchForm from '../searchForm/SearchForm';
 import { NavLink } from 'react-router-dom';
 
 const Navbar = (props) => {

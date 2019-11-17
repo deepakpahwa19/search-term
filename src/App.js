@@ -4,7 +4,7 @@ import './App.css';
 import Global from './styles/Global';
 
 
-import Main from './containers/Main';
+import Main from './components/Main';
 import Navbar from './components/navbar/Navbar';
 
 function App() {

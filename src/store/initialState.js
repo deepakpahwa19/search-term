@@ -1,7 +1,7 @@
 
 const initialState = {
     topFeatures: {},
-    list: {}
+    sentences: {}
 };
 
 export default initialState;

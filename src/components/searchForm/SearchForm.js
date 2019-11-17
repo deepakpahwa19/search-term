@@ -2,9 +2,10 @@ import React, { useRef, useState } from 'react';
 import styled from 'styled-components';
 import { FaSearch } from 'react-icons/fa';
 import { useDispatch } from 'react-redux';
+import { LOADING } from '../../store/actions/actionTypes';
 
 
-function SearchForm() {
+const SearchForm = () => {
     const dispatch = useDispatch();
     const [input, setInput] = useState("");
     const [barOpened, setBarOpened] = useState(false);
@@ -15,6 +16,7 @@ function SearchForm() {
         e.preventDefault();
         if (input.trim()) {
             console.log(`Form was submited with input: ${input}`);
+            dispatch({ type: LOADING });
             dispatch({ type: 'GET_STRINGS', terms: input })
         }
     };

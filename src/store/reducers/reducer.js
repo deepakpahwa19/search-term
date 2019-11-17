@@ -1,6 +1,6 @@
 
 import initialState from '../initialState';
-import { SET_TOP_50 } from '../actions/actionTypes';
+import { SET_TOP_50, LOADING } from '../actions/actionTypes';
 
 const reducer = (state = initialState, action) => {
 
@@ -14,7 +14,13 @@ const reducer = (state = initialState, action) => {
             return {
                 ...state,
                 topFeatures: sortedFeatures,
-                sentences: action.sentences
+                sentences: action.sentences,
+                loading: false
+            }
+        case LOADING:
+            return { 
+                ...state,
+                loading: true
             }
         default:
             return state;
