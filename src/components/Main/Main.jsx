@@ -10,12 +10,13 @@ import { SentenceList } from '../index';
 export const Main = () => {
 
     const loading = useSelector(state => state.loading);
+    const errorMessage = useSelector(state => state.errorMessage);
 
     return (
         <MainComponent>
             <Switch>
-                <Route path="/" exact component={() => <TopFeatures loading={loading} />}></Route>
-                <Route path="/sentences" component={() => <SentenceList loading={loading} />}></Route>
+                <Route path="/" exact component={() => <TopFeatures loading={loading} errorMessage={errorMessage} />}></Route>
+                <Route path="/sentences" component={() => <SentenceList loading={loading} errorMessage={errorMessage} />}></Route>
             </Switch>
         </MainComponent>
     )

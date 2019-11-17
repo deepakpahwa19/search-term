@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { FaSearch } from 'react-icons/fa';
 import { useDispatch } from 'react-redux';
 import { LOADING } from '../../store/actions/actionTypes';
+import { GET_STRINGS } from '../../saga/actionTypes/sagaActionTypes';
 
 
 const SearchForm = () => {
@@ -15,9 +16,8 @@ const SearchForm = () => {
     const onFormSubmit = e => {
         e.preventDefault();
         if (input.trim()) {
-            console.log(`Form was submited with input: ${input}`);
             dispatch({ type: LOADING });
-            dispatch({ type: 'GET_STRINGS', terms: input })
+            dispatch({ type: GET_STRINGS, terms: input })
         }
     };
 

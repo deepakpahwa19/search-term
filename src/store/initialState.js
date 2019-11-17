@@ -1,7 +1,9 @@
 
 const initialState = {
     topFeatures: {},
-    sentences: {}
+    sentences: {},
+    errorMessage: '',
+    loading: false
 };
 
 export default initialState;

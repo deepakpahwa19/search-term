@@ -3,17 +3,15 @@ import { useSelector } from 'react-redux';
 
 import withSpinner from '../../hoc/withSpinner';
 import { Table, TableParent, Tbody, Td, Thead, Tr, TrInsideThead, Th } from '../../styles/TableStyles';
-import Instruction from '../../UI/Instruction';
+import { Message } from '../../UI/index';
 
 
 
 const TopFeatures = (props) => {
 
     const features = useSelector(state => state.topFeatures);
-    if (!features.length) {
-        return <Instruction />
-    }
     return (
+        features.length ? 
         <TableParent>
             <Table>
                 <Thead>
@@ -33,7 +31,8 @@ const TopFeatures = (props) => {
                     ))}
                 </Tbody>
             </Table>
-        </TableParent>
+        </TableParent> : <Message />
+
     )
 }
 

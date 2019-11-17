@@ -5,9 +5,9 @@ import PropTypes from 'prop-types';
 const LEFT_PAGE = 'LEFT';
 const RIGHT_PAGE = 'RIGHT';
 
-/**
- * Helper method for creating a range of numbers
- * range(1, 5) => [1, 2, 3, 4, 5]
+/*
+ Helper method for creating a range of numbers
+ range(1, 6) => [1, 2, 3, 4, 5, 6]
  */
 const range = (from, to, step = 1) => {
     let i = from;
@@ -75,15 +75,15 @@ class Pagination extends Component {
     }
 
     /**
-     * Let's say we have 10 pages and we set pageNeighbours to 2
-     * Given that the current page is 6
-     * The pagination control will look like the following:
-     *
-     * (1) < {4 5} [6] {7 8} > (10)
-     *
-     * (x) => terminal pages: first and last page(always visible)
-     * [x] => represents current page
-     * {...x} => represents page neighbours
+      Let's say we have 10 pages and we set pageNeighbours to 2
+      Given that the current page is 6
+      The pagination control will look like the following:
+     
+      (1) < {4 5} [6] {7 8} > (10)
+     
+      (x) => terminal pages: first and last page(always visible)
+      [x] => represents current page
+      {...x} => represents page neighbours
      */
     fetchPageNumbers = () => {
 

@@ -1,12 +1,18 @@
 import React, { Component } from 'react';
-import { Spinner } from '../UI/Spinner';
+import { Spinner, Message } from '../UI';
 
+// HOC to display Spinner if data is loading from API calls
 const withSpinner = (WrapperComp) => {
 
     return class extends Component {
         render() {
-            if (this.props.loading) {
-                return <Spinner show={this.props.loading} />
+            const { errorMessage, loading } = this.props;
+
+            if (errorMessage) {
+                return <Message errorMessage={errorMessage} />
+            }
+            if (loading) {
+                return <Spinner show={loading} />
             }
             return (
                 <WrapperComp {...this.props} />

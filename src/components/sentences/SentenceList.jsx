@@ -4,14 +4,15 @@ import styled from 'styled-components';
 
 import Pagination from '../../UI/pagination/Pagination';
 import Sentences from './Sentences';
-import Instruction from '../../UI/Instruction';
 import withSpinner from '../../hoc/withSpinner';
+import { Message } from '../../UI';
 
 class SentenceList extends PureComponent {
 
     state = { allSentences: [], currentSentences: [], currentPage: null, totalPages: null }
 
-    onPageChanged = data => {
+    // eventHandler to trigger whenever a button is clicked in Pagination component
+    onPageChangedHandler = data => {
         let { allSentences } = this.props;
         allSentences = Object.keys(allSentences);
         const { currentPage, totalPages, pageLimit } = data;
@@ -23,15 +24,12 @@ class SentenceList extends PureComponent {
     render() {
         let { allSentences } = this.props;
         const totalSentences = Object.keys(allSentences).length;
-        if (!totalSentences) {
-            return <Instruction />;
-        }
-
         return (
-            <Section>
-                <Pagination totalRecords={totalSentences} pageLimit={30} pageNeighbours={2} onPageChanged={this.onPageChanged} />
-                <Sentences currentSentences={this.state.currentSentences} countStarts={this.state.currentPage}></Sentences>
-            </Section>
+            totalSentences ?
+                <Section>
+                    <Pagination totalRecords={totalSentences} pageLimit={30} pageNeighbours={2} onPageChanged={this.onPageChangedHandler} />
+                    <Sentences currentSentences={this.state.currentSentences} countStarts={this.state.currentPage}></Sentences>
+                </Section> : <Message />
         );
     }
 
@@ -41,7 +39,8 @@ class SentenceList extends PureComponent {
 const mapStateToProps = state => {
     return {
         allSentences: state.sentences,
-        loading: state.loading
+        loading: state.loading,
+        errorMessage: state.errorMessage
     }
 }
 

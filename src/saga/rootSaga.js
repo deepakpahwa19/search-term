@@ -1,13 +1,8 @@
 import { fork, all } from "@redux-saga/core/effects";
-import searchTerm from './searchTerm';
-
+import searchTermSaga from './searchTermSaga';
 
 function* rootSaga() {
-    yield all([fork(searchTerm)]);
+    yield all([fork(searchTermSaga)]);
 }
 
 export default rootSaga;
-
-
-
-// const url = 'https://api-demo.sentisum.com/api/v1/comments/textsearch?source=dhl-parcel&terms=safe&sentiment=all&apiKey=AU_WtVnh93Tixe_CNZqp';
