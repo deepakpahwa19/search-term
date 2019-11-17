@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
 import styled from 'styled-components';
 
-import Pagination from '../pagination/Pagination';
+import Pagination from '../../UI/pagination/Pagination';
 import Sentences from './Sentences';
 import Instruction from '../../UI/Instruction';
 import withSpinner from '../../hoc/withSpinner';

@@ -3,11 +3,11 @@ import styled from 'styled-components';
 import { Route, Switch } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
-import TopFeatures from './features/TopFeatures';
-import SentenceList from './sentences/SentenceList';
+import { TopFeatures } from '../index';
+import { SentenceList } from '../index';
 
 
-const Main = () => {
+export const Main = () => {
 
     const loading = useSelector(state => state.loading);
 
@@ -22,7 +22,6 @@ const Main = () => {
 }
 
 
-export default Main;
 
 const MainComponent = styled.main`
     margin: auto;

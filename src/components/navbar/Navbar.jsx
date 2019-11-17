@@ -2,12 +2,12 @@ import React from 'react'
 import styled from "styled-components";
 import { useSpring, animated, config } from "react-spring";
 import Brand from "./Brand";
-import BurgerMenu from "./BurgerMenu";
+import Options from "./Options";
 import CollapseMenu from "./CollapseMenu";
 import SearchForm from '../searchForm/SearchForm';
 import { NavLink } from 'react-router-dom';
 
-const Navbar = (props) => {
+export const Navbar = (props) => {
   const barAnimation = useSpring({
     from: { transform: 'translate3d(0, -10rem, 0)' },
     transform: 'translate3d(0, 0, 0)',
@@ -30,12 +30,12 @@ const Navbar = (props) => {
             <NavLink to="/">Top Features</NavLink>
             <NavLink to="/sentences">Sentences</NavLink>
           </NavLinks>
-          <BurgerWrapper>
-            <BurgerMenu
+          <OptionsWrapper>
+            <Options
               navbarState={props.navbarState}
               handleNavbar={props.handleNavbar}
             />
-          </BurgerWrapper>
+          </OptionsWrapper>
         </FlexContainer>
       </NavBar>
       <CollapseMenu
@@ -46,7 +46,6 @@ const Navbar = (props) => {
   )
 }
 
-export default Navbar;
 
 const NavBar = styled(animated.nav)`
   position: fixed;
@@ -93,7 +92,7 @@ const NavLinks = styled(animated.ul)`
   }
 `;
 
-const BurgerWrapper = styled.div`
+const OptionsWrapper = styled.div`
   margin: auto 0;
 
   @media (min-width: 769px) {
