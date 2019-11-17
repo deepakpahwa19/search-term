@@ -3,7 +3,6 @@ import styled from "styled-components";
 import { useSpring, animated, config } from "react-spring";
 import Brand from "./Brand";
 import Options from "./Options";
-import CollapseMenu from "./CollapseMenu";
 import SearchForm from '../searchForm/SearchForm';
 import { NavLink } from 'react-router-dom';
 
@@ -38,10 +37,6 @@ export const Navbar = (props) => {
           </OptionsWrapper>
         </FlexContainer>
       </NavBar>
-      <CollapseMenu
-        navbarState={props.navbarState}
-        handleNavbar={props.handleNavbar}
-      />
     </>
   )
 }

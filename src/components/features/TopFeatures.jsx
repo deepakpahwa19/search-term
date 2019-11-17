@@ -23,7 +23,7 @@ const TopFeatures = (props) => {
                 </Thead>
                 <Tbody>
                     {features.map((feature, index) => (
-                        <Tr key={index + 1} number={index}>
+                        <Tr key={index + 1} num={index}>
                             <Td>{index + 1}</Td>
                             <Td>{feature[0]}</Td>
                             <Td>{feature[1]}</Td>

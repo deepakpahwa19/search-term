@@ -23,7 +23,7 @@ export const TrInsideThead = styled.tr`
 `;
 
 export const Tr = styled.tr`
-  background-color: ${props => props.number % 2 !== 0 ? '#88a3e026' : ''};
+  background-color: ${props => props.num % 2 !== 0 ? '#88a3e026' : ''};
 
   &:hover {
     box-shadow: 0px 0px 4px 1px black;
